@@ -1,0 +1,51 @@
+﻿<h3>{{ title }}</h3>
+<hr />
+<form role="form" style="max-width: 500px;">
+    <strong class="error">{{ error }}</strong>
+    <div class="form-group">
+        <label for="firstname">
+            Nome</label>
+        <input type="text" class="form-control" id="firstname" ng-model="firstname" />
+    </div>
+    <div class="form-group">
+        <label for="lastname">
+           Sobrenome:</label>
+        <input type="text" class="form-control" id="lastname" ng-model="lastname" />
+    </div>
+    <div class="form-group">
+        <label for="country">
+           País:</label>
+        <select class="form-control" id="country" ng-model="country" ng-options="c.Value as c.Text for c in countries" ng-change="getStates()">
+            <option value="">-- Selecione o País --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="state">
+           Estado:</label>
+        <select class="form-control" id="state" ng-model="state" ng-disabled="!states" ng-options="s.Value as s.Text for s in states">
+            <option value="">-- Selecione o Estado --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="salary">
+            Salário:</label>
+        <input type="text" class="form-control" id="salary" ng-model="salary" />
+    </div>
+    <div class="form-group">
+        <label for="dob">
+            Data de Nascimento:</label>
+        <input type="date" class="form-control" id="dob" ng-model="dob" />
+    </div>
+    <div class="form-group">
+        <label for="description">
+           Descrição:</label>
+        <textarea rows="5" cols="10" class="form-control" id="description" ng-model="description"></textarea>
+    </div>
+    <div class="form-group checkbox">
+        <label>
+            <input type="checkbox" ng-model="active" />Ativo</label>
+    </div>
+    <a href="#/list" class="btn btn-info">Voltar para a lista</a>
+    <button type="submit" class="btn btn-default" ng-click="save()">
+        Enviar</button>
+</form>

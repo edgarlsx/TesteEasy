@@ -1,0 +1,39 @@
+﻿<div>
+    <a href="#/create" class="btn">Adicionar</a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Descrição</th>
+            <th>Salário</th>
+            <th>País</th>
+            <th>Estado</th>
+            <th>Data de Nascimento</th>
+            <th>Ativo</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in employees">
+            <td>{{ item.EmployeeId }}</td>
+            <td>{{ item.FirstName }}</td>
+            <td>{{ item.LastName }}</td>
+            <td>{{ item.Description }}</td>
+            <td>{{ item.Salary | number: 2 }}</td>
+            <td>{{ item.Country }}</td>
+            <td>{{ item.State }}</td>
+            <td>{{ item.DateofBirth | date }}</td>
+            <td>
+                <span class="label" ng-class="{true:'label-success', false:'label-danger', '':'hidden'}[item.IsActive]">{{ item.IsActive ? 'Active' : 'In Active' }}</span>
+            </td>
+            <td>
+                <a href="#/edit/{{item.EmployeeId}}" class="glyphicon glyphicon-edit"></a>
+            </td>
+            <td>
+                <a href="#/delete/{{item.EmployeeId}}" class="glyphicon glyphicon-trash"></a>
+            </td>
+        </tr>
+    </table>
+</div>
